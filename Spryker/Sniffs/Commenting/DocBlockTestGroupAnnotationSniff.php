@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use Exception;
@@ -11,7 +16,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class DocBlockTestGroupAnnotationSniff extends AbstractSprykerSniff
 {
-
     /**
      * @return array
      */
@@ -286,5 +290,4 @@ class DocBlockTestGroupAnnotationSniff extends AbstractSprykerSniff
 
         throw new Exception('Not possible');
     }
-
 }

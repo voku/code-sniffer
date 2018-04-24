@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
@@ -10,7 +15,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class FullyQualifiedClassNameInDocBlockSniff implements Sniff
 {
-
     /**
      * @var array
      */
@@ -292,5 +296,4 @@ class FullyQualifiedClassNameInDocBlockSniff implements Sniff
 
         return $useStatements;
     }
-
 }

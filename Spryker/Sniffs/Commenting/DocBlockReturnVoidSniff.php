@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
@@ -13,7 +18,6 @@ use Spryker\Tools\Traits\CommentingTrait;
  */
 class DocBlockReturnVoidSniff extends AbstractSprykerSniff
 {
-
     use CommentingTrait;
 
     /**
@@ -200,5 +204,4 @@ class DocBlockReturnVoidSniff extends AbstractSprykerSniff
 
         return $type;
     }
-
 }

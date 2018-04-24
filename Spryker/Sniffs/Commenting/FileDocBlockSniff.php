@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
@@ -9,7 +14,6 @@ use PHP_CodeSniffer\Files\File;
  */
 class FileDocBlockSniff extends AbstractFileDocBlockSniff
 {
-
     const FIRST_COMMENT_LINE_POSITION = 5;
     const SECOND_COMMENT_LINE_POSITION = 10;
     const EXPECTED_FILE_DOC_BLOCK_TOKEN_COUNT = 14;
@@ -87,7 +91,7 @@ class FileDocBlockSniff extends AbstractFileDocBlockSniff
      */
     protected function isIgnorableBundle(File $phpCsFile)
     {
-        return (in_array($this->getBundle($phpCsFile), $this->ignorableBundles));
+        return (in_array($this->getModule($phpCsFile), $this->ignorableBundles));
     }
 
     /**
@@ -181,5 +185,4 @@ class FileDocBlockSniff extends AbstractFileDocBlockSniff
 
         return null;
     }
-
 }

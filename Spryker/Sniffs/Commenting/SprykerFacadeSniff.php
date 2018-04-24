@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
@@ -10,7 +15,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class SprykerFacadeSniff implements Sniff
 {
-
     /**
      * @return array
      */
@@ -60,7 +64,7 @@ class SprykerFacadeSniff implements Sniff
     }
 
     /**
-     * Facade interfaces must have a "Specification" block as part of the contract.
+     * Facade methods need to appear in its interface (and vice versa)
      *
      * @param \PHP_CodeSniffer\Files\File $phpCsFile
      * @param int $stackPointer
@@ -81,12 +85,26 @@ class SprykerFacadeSniff implements Sniff
         $interfaceMethods = $matches[1];
         asort($interfaceMethods);
 
-        if (array_values($interfaceMethods) !== array_values($methods)) {
-            $missingMethods = array_diff($methods, $interfaceMethods);
+        if (array_values($interfaceMethods) === array_values($methods)) {
+            return;
+        }
 
+        $missingInterfaceMethods = array_diff($methods, $interfaceMethods);
+        $missingInterfaceImplementations = array_diff($interfaceMethods, $methods);
+
+        if (count($missingInterfaceMethods) > 0) {
             $phpCsFile->addError(
-                sprintf('Interface methods do not match facade methods: "%s" missing', implode(', ', $missingMethods), 'InterfaceMethodsNotMatch'),
-                $stackPointer
+                sprintf('Interface methods do not match facade methods: "%s" missing', implode(', ', $missingInterfaceMethods), 'InterfaceMethodsNotMatch'),
+                $stackPointer,
+                'InterfaceMethodMissing'
+            );
+        }
+
+        if (count($missingInterfaceImplementations) > 0) {
+            $phpCsFile->addError(
+                sprintf('Interface method has no implementation: "%s" missing', implode(', ', $missingInterfaceImplementations), 'InterfaceMethodsNotMatch'),
+                $stackPointer,
+                'InterfaceImplementationMissing'
             );
         }
     }
@@ -184,5 +202,4 @@ class SprykerFacadeSniff implements Sniff
 
         return false;
     }
-
 }

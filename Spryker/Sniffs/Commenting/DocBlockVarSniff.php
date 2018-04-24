@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
@@ -14,7 +19,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class DocBlockVarSniff extends AbstractSprykerSniff
 {
-
     /**
      * @inheritDoc
      */
@@ -225,5 +229,4 @@ class DocBlockVarSniff extends AbstractSprykerSniff
 
         $phpCsFile->fixer->addContent($varIndex, ' ' . $defaultValueType);
     }
-
 }

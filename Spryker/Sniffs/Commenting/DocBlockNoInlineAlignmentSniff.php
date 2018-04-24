@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected.
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Sniffs\Commenting;
@@ -13,7 +15,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class DocBlockNoInlineAlignmentSniff extends AbstractSprykerSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -94,5 +95,4 @@ class DocBlockNoInlineAlignmentSniff extends AbstractSprykerSniff
             $phpcsFile->fixer->replaceToken($stackPtr, $newContent);
         }
     }
-
 }

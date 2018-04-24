@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Files\File;
@@ -14,7 +19,6 @@ use PHP_CodeSniffer\Util\Tokens;
  */
 class MemberVarSpacingSniff extends AbstractVariableSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -74,5 +78,4 @@ class MemberVarSpacingSniff extends AbstractVariableSniff
     {
         // We don't care about normal variables.
     }
-
 }

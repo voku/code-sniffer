@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected.
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Sniffs\PHP;
@@ -13,7 +15,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class PhpSapiConstantSniff implements Sniff
 {
-
     const PHP_SAPI = 'PHP_SAPI';
 
     /**
@@ -62,5 +63,4 @@ class PhpSapiConstantSniff implements Sniff
             }
         }
     }
-
 }

@@ -1,10 +1,8 @@
 <?php
 
 /**
- * Checks that the method declaration and body has correct spacing.
- *
- * @author Mark Scherer
- * @license MIT
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Sniffs\Namespaces;
@@ -18,7 +16,6 @@ use Spryker\Traits\UseStatementsTrait;
  */
 class UseWithAliasingSniff extends AbstractSprykerSniff
 {
-
     use UseStatementsTrait;
 
     /**
@@ -55,5 +52,4 @@ class UseWithAliasingSniff extends AbstractSprykerSniff
 
         $phpcsFile->fixer->replaceToken($stackPtr, $newContent);
     }
-
 }

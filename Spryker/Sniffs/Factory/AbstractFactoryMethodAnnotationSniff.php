@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Factory;
 
 use PHP_CodeSniffer\Files\File;
@@ -7,7 +12,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractMethodAnnotationSniff;
 
 abstract class AbstractFactoryMethodAnnotationSniff extends AbstractMethodAnnotationSniff
 {
-
     /**
      * @param \PHP_CodeSniffer\Files\File $phpCsFile
      *
@@ -23,5 +27,4 @@ abstract class AbstractFactoryMethodAnnotationSniff extends AbstractMethodAnnota
             || substr($className, -18) === 'PersistenceFactory'
         );
     }
-
 }

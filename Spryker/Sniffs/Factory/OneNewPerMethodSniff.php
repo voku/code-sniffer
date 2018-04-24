@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Factory;
 
 use PHP_CodeSniffer\Files\File;
@@ -12,7 +17,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class OneNewPerMethodSniff extends AbstractSprykerSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -130,5 +134,4 @@ class OneNewPerMethodSniff extends AbstractSprykerSniff
 
         return $classMethod;
     }
-
 }

@@ -6,22 +6,26 @@
         All sniffs in ./Sniffs will be auto loaded
     </description>
 
+    <!-- Ignore all (PHP) test files. -->
+    <exclude-pattern>*/test_files/*</exclude-pattern>
+
     <exclude-pattern>\.idea</exclude-pattern>
     <exclude-pattern>\.git</exclude-pattern>
-    <exclude-pattern>*/src/Generated/*</exclude-pattern>
-    <exclude-pattern>*/src/Orm/*</exclude-pattern>
-    <exclude-pattern>*/tests/_support/_generated/*</exclude-pattern>
-    <exclude-pattern>*/tests/_helpers/*</exclude-pattern>
-    <exclude-pattern>*/tests/_output/*</exclude-pattern>
-    <exclude-pattern>*/Fixtures/*</exclude-pattern>
-    <exclude-pattern>./data/*</exclude-pattern>
-    <exclude-pattern>*.xml</exclude-pattern>
-    <exclude-pattern>*.css</exclude-pattern>
-    <exclude-pattern>*.js</exclude-pattern>
-    <exclude-pattern>*.yml</exclude-pattern>
-    <exclude-pattern>*.txt</exclude-pattern>
+    <exclude-pattern>*\.xml</exclude-pattern>
+    <exclude-pattern>*\.css</exclude-pattern>
+    <exclude-pattern>*\.js</exclude-pattern>
+    <exclude-pattern>*\.yml</exclude-pattern>
+    <exclude-pattern>*\.txt</exclude-pattern>
+    <exclude-pattern>*\.json</exclude-pattern>
 
-    <!-- Code MUST use an indent of 4 spaces, and MUST NOT use tabs for indenting. -->
+    <config name="installed_paths" value="../../slevomat/coding-standard"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.UseFromSameNamespace"/>
+    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses"/>
+    <rule ref="SlevomatCodingStandard.Arrays.TrailingArrayComma"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing"/>
+    <rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHintSpacing"/>
+
     <rule ref="Generic.WhiteSpace.ScopeIndent">
         <properties>
             <property name="ignoreIndentationTokens" type="array" value="T_COMMENT,T_DOC_COMMENT_OPEN_TAG"/>
@@ -32,6 +36,7 @@
     <rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
     <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
 
+    <rule ref="PEAR.Classes.ClassDeclaration"/>
     <rule ref="Squiz.Classes.LowercaseClassKeywords"/>
 
     <rule ref="Generic.CodeAnalysis.ForLoopShouldBeWhileLoop"/>
@@ -48,23 +53,26 @@
     <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
     <rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
 
-    <rule ref="PSR2.ControlStructures.ControlStructureSpacing"/>
-    <rule ref="PSR2.ControlStructures.ElseIfDeclaration"/>
-    <rule ref="PSR2.ControlStructures.SwitchDeclaration"/>
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <severity>0</severity>
+    </rule>
 
-    <rule ref="PSR2.Files.EndFileNewline"/>
+    <rule ref="PSR2"/>
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
+        <severity>0</severity>
+    </rule>
 
     <rule ref="Zend.Files.ClosingTag"/>
     <rule ref="Generic.Files.LineEndings"/>
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <severity>0</severity>
+    </rule>
 
     <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
     <rule ref="Squiz.Functions.MultiLineFunctionDeclaration"/>
 
     <rule ref="Squiz.Functions.FunctionDeclaration"/>
     <rule ref="PEAR.Functions.ValidDefaultValue"/>
-
-    <rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
-    <rule ref="PSR2.Namespaces.UseDeclaration"/>
 
     <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
         <properties>
@@ -77,17 +85,13 @@
 
     <rule ref="PEAR.Functions.ValidDefaultValue"/>
 
-    <rule ref="PSR2.Methods.FunctionCallSignature.SpaceAfterCloseBracket">
-        <severity>0</severity>
-    </rule>
-
     <rule ref="PEAR.NamingConventions.ValidClassName"/>
 
     <rule ref="Squiz.Operators.ValidLogicalOperators"/>
 
     <rule ref="Generic.PHP.DeprecatedFunctions"/>
     <rule ref="Generic.Formatting.NoSpaceAfterCast"/>
-    <!-- Disabled for now.
+    <!-- Disabled for now
     <rule ref="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
     -->
     <rule ref="Squiz.PHP.Eval"/>

@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Tools\Traits;
 
 use PHP_CodeSniffer\Files\File;
@@ -8,7 +14,6 @@ use PHP_CodeSniffer\Files\File;
  */
 trait NamespaceTrait
 {
-
     /**
      * Checks if this use statement is part of the namespace block.
      *
@@ -34,5 +39,4 @@ trait NamespaceTrait
 
         return false;
     }
-
 }

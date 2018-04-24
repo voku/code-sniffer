@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Plugin;
 
 use PHP_CodeSniffer\Files\File;
@@ -7,7 +12,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractMethodAnnotationSniff;
 
 abstract class AbstractPluginMethodAnnotationSniff extends AbstractMethodAnnotationSniff
 {
-
     /**
      * @param \PHP_CodeSniffer\Files\File $phpCsFile
      * @param int $stackPointer
@@ -71,5 +75,4 @@ abstract class AbstractPluginMethodAnnotationSniff extends AbstractMethodAnnotat
 
         return $stackPointer;
     }
-
 }

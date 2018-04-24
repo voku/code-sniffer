@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Files\File;
@@ -12,7 +18,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class EmptyLinesSniff extends AbstractSprykerSniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -29,6 +34,12 @@ class EmptyLinesSniff extends AbstractSprykerSniff
      */
     public function register()
     {
+        $x = [
+            'fpop',
+            'var',
+            'w',
+        ];
+
         return [T_WHITESPACE];
     }
 
@@ -63,5 +74,4 @@ class EmptyLinesSniff extends AbstractSprykerSniff
             }
         }
     }
-
 }

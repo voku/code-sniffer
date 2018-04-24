@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected.
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Sniffs\WhiteSpace;
@@ -14,7 +16,6 @@ use PHP_CodeSniffer\Util\Tokens;
  */
 class FunctionSpacingSniff implements Sniff
 {
-
     /**
      * @inheritdoc
      */
@@ -83,5 +84,4 @@ class FunctionSpacingSniff implements Sniff
             }
         }
     }
-
 }

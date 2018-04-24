@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\ControlStructures;
 
 use PHP_CodeSniffer\Files\File;
@@ -10,7 +15,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class ControlStructureSpacingSniff implements Sniff
 {
-
     /**
      * @inheritDoc
      */
@@ -138,5 +142,4 @@ class ControlStructureSpacingSniff implements Sniff
             }
         }
     }
-
 }

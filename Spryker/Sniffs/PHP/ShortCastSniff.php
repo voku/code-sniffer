@@ -1,8 +1,10 @@
 <?php
 
 /**
- * (c) Spryker Systems GmbH copyright protected.
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
+
 namespace Spryker\Sniffs\PHP;
 
 use PHP_CodeSniffer\Files\File;
@@ -13,7 +15,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class ShortCastSniff implements Sniff
 {
-
     /**
      * @var array
      */
@@ -64,5 +65,4 @@ class ShortCastSniff implements Sniff
             $phpcsFile->fixer->replaceToken($stackPtr, static::$matching[$key]);
         }
     }
-
 }

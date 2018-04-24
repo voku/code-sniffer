@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\AbstractSniffs;
 
 use PHP_CodeSniffer\Files\File;
@@ -8,10 +13,12 @@ use Spryker\Traits\BasicsTrait;
 
 abstract class AbstractSprykerSniff implements Sniff
 {
-
     use BasicsTrait;
 
     const NAMESPACE_SPRYKER = 'Spryker';
+    const NAMESPACE_SPRYKER_SHOP = 'SprykerShop';
+    const NAMESPACE_SPRYKER_SDK = 'SprykerSdk';
+    const NAMESPACE_SPRYKER_ECO = 'SprykerEco';
 
     /**
      * @param \PHP_CodeSniffer\Files\File $phpCsFile
@@ -27,11 +34,32 @@ abstract class AbstractSprykerSniff implements Sniff
     }
 
     /**
+     * Core detection (including Eco).
+     *
+     * @param \PHP_CodeSniffer\Files\File $phpCsFile
+     *
+     * @return bool
+     */
+    protected function isCore(File $phpCsFile)
+    {
+        $namespace = $this->getNamespace($phpCsFile);
+
+        $coreNamespaces = [
+            static::NAMESPACE_SPRYKER,
+            static::NAMESPACE_SPRYKER_SDK,
+            static::NAMESPACE_SPRYKER_SHOP,
+            static::NAMESPACE_SPRYKER_ECO,
+        ];
+
+        return in_array($namespace, $coreNamespaces, true);
+    }
+
+    /**
      * @param \PHP_CodeSniffer\Files\File $phpCsFile
      *
      * @return string
      */
-    protected function getBundle(File $phpCsFile)
+    protected function getModule(File $phpCsFile)
     {
         $className = $this->getClassName($phpCsFile);
         $classNameParts = explode('\\', $className);
@@ -453,8 +481,7 @@ abstract class AbstractSprykerSniff implements Sniff
         $docBlockStartIndex = $tokens[$docBlockEndIndex]['comment_opener'];
         for ($i = $docBlockStartIndex + 1;
              $i < $docBlockEndIndex;
-             $i++
-        ) {
+             $i++) {
             if ($tokens[$i]['type'] !== 'T_DOC_COMMENT_TAG') {
                 continue;
             }
@@ -466,5 +493,4 @@ abstract class AbstractSprykerSniff implements Sniff
 
         return false;
     }
-
 }

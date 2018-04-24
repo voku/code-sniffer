@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\ControlStructures;
 
 use PHP_CodeSniffer\Files\File;
@@ -12,7 +17,6 @@ use Spryker\Traits\BasicsTrait;
  */
 class ConditionalExpressionOrderSniff implements Sniff
 {
-
     use BasicsTrait;
 
     /**
@@ -175,5 +179,4 @@ class ConditionalExpressionOrderSniff implements Sniff
         $tokens[$leftIndexEnd]->setContent($rightValue);
         $tokens[$rightIndexStart]->setContent($leftValue);
     }
-
 }

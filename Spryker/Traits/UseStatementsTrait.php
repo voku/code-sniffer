@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected.
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Traits;
@@ -10,7 +12,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 trait UseStatementsTrait
 {
-
     /**
      * @param \PHP_CodeSniffer\Files\File $phpcsFile
      *
@@ -90,5 +91,4 @@ trait UseStatementsTrait
 
         return false;
     }
-
 }

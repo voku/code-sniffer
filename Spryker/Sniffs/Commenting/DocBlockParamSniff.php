@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
@@ -15,7 +20,6 @@ use Spryker\Tools\Traits\SignatureTrait;
  */
 class DocBlockParamSniff extends AbstractSprykerSniff
 {
-
     use CommentingTrait;
     use SignatureTrait;
 
@@ -111,5 +115,4 @@ class DocBlockParamSniff extends AbstractSprykerSniff
             $phpCsFile->addError($error, $docBlockParam['index'], 'VariableWrong');
         }
     }
-
 }

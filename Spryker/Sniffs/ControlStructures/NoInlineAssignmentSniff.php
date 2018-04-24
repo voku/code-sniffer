@@ -1,7 +1,8 @@
 <?php
 
 /**
- * (c) Spryker Systems GmbH copyright protected.
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Sniffs\ControlStructures;
@@ -15,7 +16,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class NoInlineAssignmentSniff extends AbstractSprykerSniff
 {
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -130,5 +130,4 @@ class NoInlineAssignmentSniff extends AbstractSprykerSniff
 
         $phpcsFile->addError('Inline assignment not allowed', $stackPtr, 'NoInlineAssignment');
     }
-
 }

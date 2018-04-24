@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
@@ -10,7 +15,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
  */
 class DocBlockApiAnnotationSniff implements Sniff
 {
-
     /**
      * @return array
      */
@@ -265,5 +269,4 @@ class DocBlockApiAnnotationSniff implements Sniff
             $phpCsFile->fixer->endChangeset();
         }
     }
-
 }

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Files\File;
@@ -13,7 +18,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class MethodSpacingSniff extends AbstractSprykerSniff
 {
-
     /**
      * @inheritDoc
      */
@@ -104,5 +108,4 @@ class MethodSpacingSniff extends AbstractSprykerSniff
             }
         }
     }
-
 }

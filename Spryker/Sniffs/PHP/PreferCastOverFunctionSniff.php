@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected.
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Sniffs\PHP;
@@ -13,7 +15,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class PreferCastOverFunctionSniff extends AbstractSprykerSniff
 {
-
     /**
      * @var array
      */
@@ -93,5 +94,4 @@ class PreferCastOverFunctionSniff extends AbstractSprykerSniff
             $phpcsFile->fixer->replaceToken($closingBraceIndex, '');
         }
     }
-
 }

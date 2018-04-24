@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Facade;
 
 use PHP_CodeSniffer\Files\File;
@@ -7,7 +12,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractMethodAnnotationSniff;
 
 abstract class AbstractFacadeMethodAnnotationSniff extends AbstractMethodAnnotationSniff
 {
-
     /**
      * @param \PHP_CodeSniffer\Files\File $phpCsFile
      *
@@ -16,7 +20,7 @@ abstract class AbstractFacadeMethodAnnotationSniff extends AbstractMethodAnnotat
     protected function isFacade(File $phpCsFile)
     {
         $className = $this->getClassName($phpCsFile);
-        $bundleName = $this->getBundle($phpCsFile);
+        $bundleName = $this->getModule($phpCsFile);
 
         $facadeName = $bundleName . 'Facade';
         $stringLength = strlen($facadeName);
@@ -24,5 +28,4 @@ abstract class AbstractFacadeMethodAnnotationSniff extends AbstractMethodAnnotat
 
         return ($relevantClassNamePart === $facadeName);
     }
-
 }

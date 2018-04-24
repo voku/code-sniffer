@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Plugin;
 
 use PHP_CodeSniffer\Files\File;
@@ -9,7 +14,6 @@ use PHP_CodeSniffer\Files\File;
  */
 class FacadeMethodAnnotationSniff extends AbstractPluginMethodAnnotationSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -19,7 +23,7 @@ class FacadeMethodAnnotationSniff extends AbstractPluginMethodAnnotationSniff
             return;
         }
 
-        $bundle = $this->getBundle($phpCsFile);
+        $bundle = $this->getModule($phpCsFile);
         $facadeName = $bundle . 'Facade';
 
         if (!$this->hasFacadeAnnotation($phpCsFile, $stackPointer)
@@ -108,5 +112,4 @@ class FacadeMethodAnnotationSniff extends AbstractPluginMethodAnnotationSniff
 
         return $facadeClassName;
     }
-
 }

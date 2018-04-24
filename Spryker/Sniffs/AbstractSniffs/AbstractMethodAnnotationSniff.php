@@ -1,12 +1,16 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\AbstractSniffs;
 
 use PHP_CodeSniffer\Files\File;
 
 abstract class AbstractMethodAnnotationSniff extends AbstractSprykerSniff
 {
-
     /**
      * @var bool
      */
@@ -55,5 +59,4 @@ abstract class AbstractMethodAnnotationSniff extends AbstractSprykerSniff
 
         return file_exists($fileName);
     }
-
 }

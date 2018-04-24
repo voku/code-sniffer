@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use Exception;
@@ -17,7 +22,6 @@ use Spryker\Traits\UseStatementsTrait;
  */
 class DocBlockThrowsSniff extends AbstractSprykerSniff
 {
-
     use UseStatementsTrait;
 
     /**
@@ -109,24 +113,6 @@ class DocBlockThrowsSniff extends AbstractSprykerSniff
         $phpCsFile->fixer->addNewline($index);
         $phpCsFile->fixer->addContent($index, "\t" . ' * @var ' . $defaultValueType);
         $phpCsFile->fixer->endChangeset();
-    }
-
-    /**
-     * @param \PHP_CodeSniffer\Files\File $phpCsFile
-     * @param int $varIndex
-     * @param string|null $defaultValueType
-     *
-     * @return void
-     */
-    protected function handleMissingThrowsAnnotation(File $phpCsFile, $varIndex, $defaultValueType)
-    {
-        $error = 'Doc Block annotation @throw missing';
-        $fix = $phpCsFile->addFixableError($error, $varIndex, 'ThrowMissing');
-        if (!$fix) {
-            return;
-        }
-
-        $phpCsFile->fixer->addContent($varIndex, ' ' . $defaultValueType);
     }
 
     /**
@@ -271,6 +257,13 @@ class DocBlockThrowsSniff extends AbstractSprykerSniff
 
         foreach ($exceptions as $exception) {
             $exception = $this->normalizeClassName($exception, $useStatements);
+            if (empty($exception['fullClass'])) {
+                // We skip for complex scnarios
+                if ($annotations) {
+                    $phpCsFile->addError('Doc Block @throw annotation missing', $docBlockEndIndex, 'ThrowMissingManual');
+                }
+                continue;
+            }
 
             if ($this->isInAnnotation($exception, $annotations)) {
                 continue;
@@ -489,5 +482,4 @@ class DocBlockThrowsSniff extends AbstractSprykerSniff
 
         return false;
     }
-
 }

@@ -1,10 +1,10 @@
 # Spryker Code Sniffer
 [![Build Status](https://api.travis-ci.org/spryker/code-sniffer.svg?branch=master)](https://travis-ci.org/spryker/code-sniffer)
-[![Minimum PHP Version](http://img.shields.io/badge/php-%3E%3D%205.4-8892BF.svg)](https://php.net/)
+[![Minimum PHP Version](http://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg)](https://php.net/)
 [![License](https://poser.pugx.org/spryker/code-sniffer/license.svg)](https://packagist.org/packages/spryker/code-sniffer)
 [![Total Downloads](https://poser.pugx.org/spryker/code-sniffer/d/total.svg)](https://packagist.org/packages/spryker/code-sniffer)
 
-This sniffer package follows [PSR-2](http://www.php-fig.org/psr/psr-2/) and ships with a lot of additional fixers on top.
+This sniffer package follows [PSR-2](http://www.php-fig.org/psr/psr-2/) completely and ships with a lot of additional fixers on top.
 Please see the Spryker Coding conventions for details.
 
 [List of included sniffs](/docs)
@@ -95,6 +95,29 @@ This can be configured in the Development bundle config:
 ```
 If you use it for custom projects, just use `--standard` to point to your ruleset file.
 
+Make sure that you include the Spryker core standard ruleset in your custom one, e.g.:
+```xml
+<?xml version="1.0"?>
+<ruleset name="SprykerProject">
+    <description>
+        Spryker Coding Standard for Project.
+        Extends main Spryker Coding Standard.
+        All sniffs in ./Sniffs will be auto loaded
+    </description>
+
+    <rule ref="vendor/spryker/code-sniffer/Spryker/ruleset.xml"/>
+
+    <exclude-pattern>*/src/Generated/*</exclude-pattern>
+    <exclude-pattern>*/src/Orm/*</exclude-pattern>
+    <exclude-pattern>*/tests/_support/_generated/*</exclude-pattern>
+    <exclude-pattern>*/tests/_helpers/*</exclude-pattern>
+    <exclude-pattern>*/tests/_output/*</exclude-pattern>
+    <exclude-pattern>./data/DE/*</exclude-pattern>
+
+    <!-- Define your own sniffs here -->
+</ruleset>
+```
+
 ## Custom licensing
 You can provide a custom license via `.license` file in your repository root.
 It must be a PHP doc block (valid PHP) including a trailing new line.
@@ -120,6 +143,10 @@ You basically just add `- vendor/bin/console code:sniff:style` the the list.
 
 
 Please see the [Spryker Demoshop](https://github.com/spryker/demoshop) repository for details. It is used there.
+
+## Excluding test related comparison files
+If you want to exclude certain generated (e.g. PHP) files, make sure those are in a `test_files` subfolder to be auto-skipped.
+You can otherwise always create a custom and rather unique folder name and manually exclude it in your PHPCS settings.
 
 ## Writing new sniffs
 Add them to the corresponding category inside Sniffs folder and add tests in `tests` with the same folder structure.

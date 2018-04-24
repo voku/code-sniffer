@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\DependencyProvider;
 
 use PHP_CodeSniffer\Files\File;
@@ -12,7 +17,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class FacadeNotInBridgeReturnedSniff extends AbstractSprykerSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -49,7 +53,7 @@ class FacadeNotInBridgeReturnedSniff extends AbstractSprykerSniff
     protected function isProvider(File $phpCsFile)
     {
         $className = $this->getClassName($phpCsFile);
-        $bundleName = $this->getBundle($phpCsFile);
+        $bundleName = $this->getModule($phpCsFile);
 
         $providerName = $bundleName . 'DependencyProvider';
         $stringLength = strlen($providerName);
@@ -106,5 +110,4 @@ class FacadeNotInBridgeReturnedSniff extends AbstractSprykerSniff
 
         return $statement;
     }
-
 }

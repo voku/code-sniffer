@@ -1,9 +1,8 @@
 <?php
 
 /**
- * @author Mark Scherer
- * @author Lucas Manzke <lmanzke@outlook.com>
- * @author Gregor Harlan <gharlan@web.de>
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Sniffs\Classes;
@@ -14,10 +13,13 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
 
 /**
  * In method arguments there must not be arguments with default values before non-default ones.
+ *
+ * @author Mark Scherer
+ * @author Lucas Manzke <lmanzke@outlook.com>
+ * @author Gregor Harlan <gharlan@web.de>
  */
 class MethodArgumentDefaultValueSniff extends AbstractSprykerSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -174,5 +176,4 @@ class MethodArgumentDefaultValueSniff extends AbstractSprykerSniff
 
         $phpcsFile->fixer->replaceToken($index - 1, '');
     }
-
 }

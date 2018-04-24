@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Plugin;
 
 use PHP_CodeSniffer\Files\File;
@@ -9,7 +14,6 @@ use PHP_CodeSniffer\Files\File;
  */
 class FactoryMethodAnnotationSniff extends AbstractPluginMethodAnnotationSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -19,7 +23,7 @@ class FactoryMethodAnnotationSniff extends AbstractPluginMethodAnnotationSniff
             return;
         }
 
-        $bundle = $this->getBundle($phpCsFile);
+        $bundle = $this->getModule($phpCsFile);
         $factoryName = $bundle . 'CommunicationFactory';
         if (!$this->hasFactoryAnnotation($phpCsFile, $stackPointer) && $this->fileExists($phpCsFile, $this->getFactoryClassName($phpCsFile))) {
             $fix = $phpCsFile->addFixableError('getFactory() annotation missing', $stackPointer, 'Missing');
@@ -104,5 +108,4 @@ class FactoryMethodAnnotationSniff extends AbstractPluginMethodAnnotationSniff
 
         return $factoryClassName;
     }
-
 }

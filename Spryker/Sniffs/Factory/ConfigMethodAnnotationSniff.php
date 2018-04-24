@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Factory;
 
 use PHP_CodeSniffer\Files\File;
@@ -9,7 +14,6 @@ use PHP_CodeSniffer\Files\File;
  */
 class ConfigMethodAnnotationSniff extends AbstractFactoryMethodAnnotationSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -19,7 +23,7 @@ class ConfigMethodAnnotationSniff extends AbstractFactoryMethodAnnotationSniff
             return;
         }
 
-        $bundle = $this->getBundle($phpCsFile);
+        $bundle = $this->getModule($phpCsFile);
         $configName = $bundle . 'Config';
 
         if (!$this->hasConfigAnnotation($phpCsFile, $stackPointer) && $this->fileExists($phpCsFile, $this->getConfigClassName($phpCsFile))) {
@@ -103,5 +107,4 @@ class ConfigMethodAnnotationSniff extends AbstractFactoryMethodAnnotationSniff
 
         return $configClassName;
     }
-
 }

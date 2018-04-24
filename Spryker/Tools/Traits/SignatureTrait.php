@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Tools\Traits;
 
 use PHP_CodeSniffer\Files\File;
@@ -9,7 +14,6 @@ use PHP_CodeSniffer\Files\File;
  */
 trait SignatureTrait
 {
-
     /**
      * @param \PHP_CodeSniffer\Files\File $phpCsFile
      * @param int $stackPtr
@@ -69,5 +73,4 @@ trait SignatureTrait
 
         return $arguments;
     }
-
 }

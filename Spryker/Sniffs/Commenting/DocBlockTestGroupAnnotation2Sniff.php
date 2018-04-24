@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use Exception;
@@ -11,7 +16,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class DocBlockTestGroupAnnotation2Sniff extends AbstractSprykerSniff
 {
-
     const ANNOTATION_START_TEXT = 'Auto-generated group annotations';
     const ANNOTATION_END_TEXT = 'Add your own group annotations below this line';
 
@@ -343,5 +347,4 @@ class DocBlockTestGroupAnnotation2Sniff extends AbstractSprykerSniff
 
         return true;
     }
-
 }

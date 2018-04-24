@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected.
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Sniffs\Internal;
@@ -13,7 +15,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class SprykerNoDemoshopSniff extends AbstractSprykerSniff
 {
-
     /**
      * @var bool|null
      */
@@ -69,9 +70,8 @@ class SprykerNoDemoshopSniff extends AbstractSprykerSniff
         }
 
         $content = file_get_contents($file);
-        static::$isDemoshop = (bool)preg_match('#"name":\s*"spryker/demoshop"#', $content, $matches);
+        static::$isDemoshop = (bool)preg_match('#"name":\s*"(spryker/demoshop|spryker-shop/suite)"#', $content, $matches);
 
         return static::$isDemoshop;
     }
-
 }

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Factory;
 
 use PHP_CodeSniffer\Files\File;
@@ -13,7 +18,6 @@ use Spryker\Sniffs\AbstractSniffs\AbstractSprykerSniff;
  */
 class NoPrivateMethodsSniff extends AbstractSprykerSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -142,5 +146,4 @@ class NoPrivateMethodsSniff extends AbstractSprykerSniff
         $phpCsFile->fixer->replaceToken($stackPointer - 2, 'protected');
         $phpCsFile->fixer->endChangeset();
     }
-
 }

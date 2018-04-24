@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Tools\Traits;
 
 use PHP_CodeSniffer\Files\File;
@@ -8,7 +14,6 @@ use PHP_CodeSniffer\Files\File;
  */
 trait CommentingTrait
 {
-
     /**
      * Looks for either `@inheritdoc` or `{@inheritdoc}`.
      *
@@ -54,5 +59,4 @@ trait CommentingTrait
 
         return false;
     }
-
 }

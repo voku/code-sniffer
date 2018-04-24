@@ -1,6 +1,8 @@
 <?php
+
 /**
- * (c) Spryker Systems GmbH copyright protected.
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
 namespace Spryker\Sniffs\Namespaces;
@@ -14,7 +16,6 @@ use Spryker\Traits\BasicsTrait;
  */
 class SprykerNamespaceSniff implements Sniff
 {
-
     use BasicsTrait;
 
     /**
@@ -54,5 +55,4 @@ class SprykerNamespaceSniff implements Sniff
         $error = sprintf('Namespace `%s` does not fit to folder structure `%s`', $namespace, $pathToNamespace);
         $phpcsFile->addError($error, $namespaceStatement['start'], 'NamespaceFolderMismatch');
     }
-
 }

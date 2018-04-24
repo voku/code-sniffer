@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Tools;
 
 use Exception;
@@ -15,7 +20,6 @@ if (!class_exists(Config::class) && file_exists($manualAutoload)) {
 
 class Tokenizer
 {
-
     /**
      * @var string
      */
@@ -55,12 +59,12 @@ class Tokenizer
     public function tokenize()
     {
         $res = [];
-        $tokens = $this->_getTokens($this->path);
+        $tokens = $this->getTokens($this->path);
 
         $array = file($this->path);
         foreach ($array as $key => $row) {
             $res[] = rtrim($row);
-            $tokenStrings = $this->_tokenize($key + 1, $tokens);
+            $tokenStrings = $this->getTokenStrings($key + 1, $tokens);
             if ($tokenStrings) {
                 foreach ($tokenStrings as $string) {
                     $res[] = '// ' . $string;
@@ -79,7 +83,7 @@ class Tokenizer
      *
      * @return array Tokens
      */
-    protected function _getTokens($path)
+    protected function getTokens($path)
     {
         $phpcs = new Runner();
 
@@ -104,7 +108,7 @@ class Tokenizer
      *
      * @return array
      */
-    protected function _tokenize($row, $tokens)
+    protected function getTokenStrings($row, $tokens)
     {
         $pieces = [];
         foreach ($tokens as $key => $token) {
@@ -143,5 +147,4 @@ class Tokenizer
         }
         return [implode(' ', $pieces)];
     }
-
 }

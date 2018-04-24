@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Factory;
 
 use PHP_CodeSniffer\Files\File;
@@ -9,7 +14,6 @@ use PHP_CodeSniffer\Files\File;
  */
 class QueryContainerMethodAnnotationSniff extends AbstractFactoryMethodAnnotationSniff
 {
-
     const LAYER_PERSISTENCE = 'Persistence';
 
     /**
@@ -21,7 +25,7 @@ class QueryContainerMethodAnnotationSniff extends AbstractFactoryMethodAnnotatio
             return;
         }
 
-        $bundle = $this->getBundle($phpCsFile);
+        $bundle = $this->getModule($phpCsFile);
         $queryContainerName = $bundle . 'QueryContainer';
 
         if (!$this->hasQueryContainerAnnotation($phpCsFile, $stackPointer)
@@ -110,5 +114,4 @@ class QueryContainerMethodAnnotationSniff extends AbstractFactoryMethodAnnotatio
 
         return $queryContainerClassName;
     }
-
 }

@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * MIT License
+ * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
+ */
+
 namespace Spryker\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Files\File;
@@ -14,7 +19,6 @@ use PHP_CodeSniffer\Sniffs\AbstractScopeSniff;
  */
 class DocBlockReturnTagSniff extends AbstractScopeSniff
 {
-
     /**
      * @inheritdoc
      */
@@ -103,5 +107,4 @@ class DocBlockReturnTagSniff extends AbstractScopeSniff
     protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
     {
     }
-
 }
